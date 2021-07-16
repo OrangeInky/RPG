@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body onload="tab('fight')">
     <h1 class="Heading">THE RPG GAME!</h1>
 
 <div id="Tabs" class="DIV1">
@@ -18,9 +18,27 @@
 <script src="Tab.js"></script>
 <script src="Functions/Damage.js"></script>
 <script src="Functions/Save.js"></script>
+<script src="Variable.js"></script>
 
 <div id="fight">
-    FIGHT!
+    You:
+</br>
+LV. <span id="CLV">0</span>
+</br>
+    EXP: <span id="CEXP">0</span>
+</br>
+    EXP To Next Level: <span id="NEXP">20</span>
+</br>
+    HP: <span id="FHP">5</span>
+</br>
+    Attack: <span id="ATT">1</span>
+</br>
+    Defense: <span id="DEF">0</span>
+</br>
+</br>
+VS
+</br>
+CHICKEN!
     </div>
 <div id="Upgrades">
     UPGRADES!
@@ -29,9 +47,19 @@
     POTIONS!
     </div>
 <div id="Player">
-    EXP:
+</br>
+LV. <span id="CLV">0</span>
+</br>
+    EXP: <span id="CEXP">0</span>
+</br>
+    EXP To Next Level: <span id="NEXP">20</span>
+</br>
+    Health: <span id="HP">5</span>
+</br>
+    Attack: <span id="ATT">1</span>
+</br>
+    Defense: <span id="DEF">0</span>
+</br>
     </div>
-
-
 </body>
 </html>

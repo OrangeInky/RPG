@@ -6,6 +6,4 @@ function tab (tab) {
     document.getElementById(tab).style.display = "inline-block"
 }
 
-tab('fight');
-tab('Upgrades');
-tab('Potion');
+tab();
