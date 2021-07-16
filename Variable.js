@@ -11,9 +11,11 @@ var GD = {
     Monster1: {
         LV: 0,
         EXPD: 0,
-        Health: 2,
-        Attack: 0.1,
+        Health: 0,
+        Attack: 0,
         Defense: 0,
+        Name: 0,
+        HP: 0,
     }
 }
 
@@ -28,5 +30,37 @@ var Loop = window.setInterval (function() {
 },1000)
 
 function SPAWNM() {
-
+    var SPAWNN = Math.floor(Math.random() * 5)
+    if (SPAWNN === 0) {
+        GD.Monster1.LV = Math.floor(Math.random() * 4 + 1);
+        GD.Monster1.Health = GD.Monster1.LV * 2;
+        GD.Monster1.HP = GD.Monster1.Health;
+        GD.Monster1.Attack = GD.Monster1.LV * 1.5;
+        GD.Monster1.Defense = 0;
+        GD.Monster1.Name = "Chicken";
+        GD.Monster1.EXPD = Math.round(GD.Monster1.LV + (GD.Monster1.Health / 3) * 1.3);
+        document.getElementById('MNAME').innerHTML = GD.Monster1.Name;
+        document.getElementById('MLV').innerHTML = GD.Monster1.LV;
+        document.getElementById('MHP').innerHTML = GD.Monster1.HP + "/" + GD.Monster1r.Health;
+        document.getElementById('MATT').innerHTML = GD.Monster1.Attack;
+        document.getElementById('MDEF').innerHTML = GD.Monster1.Defense;
+        document.getElementById('EXPDROP').innerHTML = GD.Monster1.EXPD;
+    }
+    if (SPAWNN === 1) {
+        GD.Monster1.LV = Math.floor(Math.random() * 4 + 1);
+        GD.Monster1.Health = GD.Monster1.LV * 1;
+        GD.Monster1.HP = GD.Monster1.Health;
+        GD.Monster1.Attack = GD.Monster1.LV * 3;
+        GD.Monster1.Defense = 0;
+        GD.Monster1.Name = "Bat";
+        GD.Monster1.EXPD = Math.round(GD.Monster1.LV + (GD.Monster1.Attack / 3) * 1.3);
+        document.getElementById('MNAME').innerHTML = GD.Monster1.Name;
+        document.getElementById('MLV').innerHTML = GD.Monster1.LV;
+        document.getElementById('MHP').innerHTML = GD.Monster1.HP + "/" + GD.Monster1.Health;
+        document.getElementById('MATT').innerHTML = GD.Monster1.Attack;
+        document.getElementById('MDEF').innerHTML = GD.Monster1.Defense;
+        document.getElementById('EXPDROP').innerHTML = GD.Monster1.EXPD;
+    }
+    if (SPAWNN > 1) {
+    }
 }

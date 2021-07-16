@@ -5,5 +5,3 @@ function tab (tab) {
     document.getElementById('Player').style.display = "none"
     document.getElementById(tab).style.display = "inline-block"
 }
-
-tab();

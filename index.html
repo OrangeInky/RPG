@@ -21,13 +21,16 @@
 <script src="Variable.js"></script>
 
 <div id="fight">
+    Hint: You have a 1/3 chance of getting a MONSTER, but other 2/3 you won't get anything, so it's not a bug that the Explore button is not working
+    <br>
+</br>
     You:
 </br>
 LV. <span id="CLV">0</span>
 </br>
     EXP: <span id="CEXP">0</span>
 </br>
-    EXP To Next Level: <span id="NEXP">20</span>
+    EXP To Next Level: <span id="NEXP">20</span> <button onclick="SPAWNM()" class="FB-E">EXPLORE</button>
 </br>
     HP: <span id="FHP">5</span>
 </br>
@@ -35,10 +38,23 @@ LV. <span id="CLV">0</span>
 </br>
     Defense: <span id="DEF">0</span>
 </br>
+<div id="MONSTER"> 
+</br>
 </br>
 VS
 </br>
-CHICKEN!
+<Span id="MNAME"> </Span>
+</br>
+LV: <span id="MLV"> </span>
+</br>
+HP:<Span id="MHP"> </Span>
+</br>
+ATTACK:<Span id="MATT"> </Span>
+</br>
+DEFENSE:<Span id="MDEF"> </Span>
+</br>
+EXP DROP:<Span id="EXPDROP"> </Span>
+</div>
     </div>
 <div id="Upgrades">
     UPGRADES!
