@@ -1,0 +1,52 @@
+.Heading {
+    text-align: center;
+}
+
+.B1 {
+    text-align: center;
+    background-color: red;
+    font-size: 30px;
+    
+}
+.B1-2 {
+    text-align: left;
+    background-color: red;
+    font-size: 30px;
+}
+
+.B1-3 {
+    text-align: right;
+    background-color: red;
+    font-size: 30px;
+}
+
+.B1-4 {
+    text-align: right;
+    background-color: red;
+    font-size: 30px;
+}
+
+.B1-2:hover {
+    background-color: lightgreen;
+    border: orange;
+    border-radius: 0%;
+}
+
+.B1:hover {
+    background-color: lightgreen;
+    border: orange;
+    border-radius: 0%;
+}
+
+.B1-3:hover {
+    background-color: lightgreen;
+    border: orange;
+    border-radius: 0%;
+}
+
+.B1-4:hover {
+    background-color: lightgreen;
+    border: orange;
+    border-radius: 0%;
+}
+
