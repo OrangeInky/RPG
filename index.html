@@ -30,18 +30,28 @@ LV. <span id="CLV">0</span>
 </br>
     EXP: <span id="CEXP">0</span>
 </br>
-    EXP To Next Level: <span id="NEXP">20</span> <button onclick="SPAWNM()" class="FB-E">EXPLORE</button>
+    EXP To Next Level: <span id="NEXP">20</span> <button id="EXPLORE" onclick="SPAWNM()" class="FB-E">EXPLORE</button>
 </br>
-    HP: <span id="FHP">5</span>
+    HP: <span id="FHP">5/5</span>
 </br>
     Attack: <span id="ATT">1</span>
 </br>
     Defense: <span id="DEF">0</span>
 </br>
-<div id="MONSTER"> 
+
+<div id="WORD" style="display: none;"> 
+</br>
+    You find nothing, explore again!
+</div>
+<div id="MONSTER" style="display: none;">
+</br>
+    <button onclick="BATTLE()">BATTLE</button> </br>
+    <button id="BATTLE" onclick="DEFENSE()" style="display: none;">Defend</button>
+    <button id="BATTLE1" onclick="ATTACK()" style="display: none;">Attack</button>
 </br>
 </br>
 VS
+</br>
 </br>
 <Span id="MNAME"> </Span>
 </br>
@@ -57,10 +67,10 @@ EXP DROP:<Span id="EXPDROP"> </Span>
 </div>
     </div>
 <div id="Upgrades">
-    UPGRADES!
+    coming soon!
     </div>
 <div id="Potion">
-    POTIONS!
+    coming soon!
     </div>
 <div id="Player">
 </br>
