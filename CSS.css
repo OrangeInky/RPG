@@ -50,3 +50,15 @@
     border-radius: 0%;
 }
 
+.Log {
+    border: 5px solid green;
+    padding: 10px;
+    margin: auto;
+    color: blue;
+    right: 10 px;
+}
+
+.FB-E {
+    background-color: green;
+}
+
