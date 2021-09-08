@@ -17,13 +17,12 @@
     <button onclick="tab('Prestige')" style="display: none; background-color: purple; font-size: 30px; border: blue;"  id="PRESTIGE"> THE GATE</button>
 </div>
 <script src="Tab.js"></script>
-<script src="Functions/Damage.js"></script>
 <script src="Functions/Save.js"></script>
 <script src="Variable.js"></script>
 <script src="Prestige.js"></script>
+<script src="MOB.js"></script>
 
 <div id="fight">
-    Hint: You have a 1/3 chance of getting a MONSTER, but other 2/3 you won't get anything, so it's not a bug that the Explore button is not working
     <br>
 </br>
     You:
@@ -40,7 +39,7 @@ LV. <span id="CLV">0</span>
 </br>
     Defense: <span id="DEF">0</span>
 </br>
-<button id="EXPLORE" onclick="SPAWNM()" class="FB-E">EXPLORE</button>
+<button id="EXPLORE" onclick="spawnRandomSlime()" class="FB-E">EXPLORE</button>
 
 <div id="WORD" style="display: none;"> 
 </br>
@@ -48,9 +47,9 @@ LV. <span id="CLV">0</span>
 </div>
 <div id="MONSTER" style="display: none;">
 </br>
-    <button onclick="BATTLE()">BATTLE</button> </br>
-    <button id="BATTLE" onclick="DEFENSE()" style="display: none;">Defend</button>
-    <button id="BATTLE1" onclick="ATTACK()" style="display: none;">Attack</button>
+    <button id="bat">BATTLE</button> </br>
+    <button id="def" style="display: none;">Defend</button>
+    <button id="att"  style="display: none;">Attack</button>
 </br>
 VS
 </br>

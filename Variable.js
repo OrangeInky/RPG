@@ -24,6 +24,7 @@ var GD = {
         GENM: 1,
         GLOBAL: 1,
         PCG: 1,
+        EXPM: 1,
     }
 }
 
@@ -33,7 +34,8 @@ var Loop = window.setInterval (function() {
     document.getElementById("CLV").innerHTML = GD.Player.LV;
     document.getElementById("ATT").innerHTML = prettify(GD.Player.Attack);
     document.getElementById("DEF").innerHTML = prettify(GD.Player.Defense);
-    document.getElementById("FHP").innerHTML = prettify(GD.Player.HP) + "/" + prettify(GD.Player.Health);
+    document.getElementById("FHP").innerHTML = prettify(GD.Player.HP) + "/" + prettify(GD.Player.Health)
+    
     if (GD.Player.EXP >= GD.Player.MEXP) {
         GD.Player.EXP = 0;
         GD.Player.MEXP *= 1.4;
@@ -45,7 +47,7 @@ var Loop = window.setInterval (function() {
         document.getElementById("LOG").innerHTML = "You level up! All stats up!"
         document.getElementById("LOG").style.display = ""
     }
-    if (GD.Player.HP >= GD.Player.Health) {
+    if (GD.Player.HP > GD.Player.Health) {
         GD.STATE.REGEN = false;
         GD.Player.HP = GD.Player.Health;
     }
@@ -54,49 +56,10 @@ var Loop = window.setInterval (function() {
     } else {
         document.getElementById('PRESTIGE').style.display = "none";
     }
+    if (GD.Player.HP <= 0) {
+        GD.STATE.REGEN = true;
+    }
 },100)
-
-function SPAWNM() {
-    var SPAWNN = Math.floor(Math.random() * 5)
-    if (SPAWNN === 0) {
-        document.getElementById("MONSTER").style.display = "";
-        document.getElementById("WORD").style.display = "none";
-        GD.Monster1.LV = Math.floor(Math.random() * 2 + 1);
-        GD.Monster1.Health = GD.Monster1.LV * 2;
-        GD.Monster1.HP = GD.Monster1.Health;
-        GD.Monster1.Attack = GD.Monster1.LV * 1.5;
-        GD.Monster1.Defense = 0;
-        GD.Monster1.Name = "Chicken";
-        GD.Monster1.EXPD = Math.round((GD.Monster1.LV + (GD.Monster1.Health / 3) * 1.3) * (GD.MULT.GLOBAL * 0.3));
-        document.getElementById('MNAME').innerHTML = GD.Monster1.Name;
-        document.getElementById('MLV').innerHTML = GD.Monster1.LV;
-        document.getElementById('MHP').innerHTML = GD.Monster1.HP + "/" + GD.Monster1.Health;
-        document.getElementById('MATT').innerHTML = GD.Monster1.Attack;
-        document.getElementById('MDEF').innerHTML = GD.Monster1.Defense;
-        document.getElementById('EXPDROP').innerHTML = GD.Monster1.EXPD;
-    }
-    if (SPAWNN === 1) {
-        document.getElementById("MONSTER").style.display = "";
-        document.getElementById("WORD").style.display = "none";
-        GD.Monster1.LV = Math.floor(Math.random() * 2 + 1);
-        GD.Monster1.Health = GD.Monster1.LV * 1;
-        GD.Monster1.HP = GD.Monster1.Health;
-        GD.Monster1.Attack = prettify(GD.Monster1.LV * 2.2);
-        GD.Monster1.Defense = 0;
-        GD.Monster1.Name = "Bat";
-        GD.Monster1.EXPD = Math.round((GD.Monster1.LV + (GD.Monster1.Attack / 3) * 1.3) * (GD.MULT.GLOBAL * 0.3));
-        document.getElementById('MNAME').innerHTML = GD.Monster1.Name;
-        document.getElementById('MLV').innerHTML = GD.Monster1.LV;
-        document.getElementById('MHP').innerHTML = GD.Monster1.HP + "/" + GD.Monster1.Health;
-        document.getElementById('MATT').innerHTML = GD.Monster1.Attack;
-        document.getElementById('MDEF').innerHTML = GD.Monster1.Defense;
-        document.getElementById('EXPDROP').innerHTML = GD.Monster1.EXPD;
-    }
-    if (SPAWNN > 1) {
-        document.getElementById("MONSTER").style.display = "none";
-        document.getElementById("WORD").style.display = "";
-    }
-}
 
 function prettify(x) {
     return Number.parseFloat(x).toFixed(2);
