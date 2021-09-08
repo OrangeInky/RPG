@@ -34,8 +34,7 @@ var Loop = window.setInterval (function() {
     document.getElementById("CLV").innerHTML = GD.Player.LV;
     document.getElementById("ATT").innerHTML = prettify(GD.Player.Attack);
     document.getElementById("DEF").innerHTML = prettify(GD.Player.Defense);
-    document.getElementById("FHP").innerHTML = prettify(GD.Player.HP) + "/" + prettify(GD.Player.Health)
-    
+    document.getElementById("FHP").innerHTML = prettify(GD.Player.HP) + "/" + prettify(GD.Player.health)
     if (GD.Player.EXP >= GD.Player.MEXP) {
         GD.Player.EXP = 0;
         GD.Player.MEXP *= 1.4;
