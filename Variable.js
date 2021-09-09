@@ -34,10 +34,10 @@ var Loop = window.setInterval (function() {
     document.getElementById("CLV").innerHTML = GD.Player.LV;
     document.getElementById("ATT").innerHTML = prettify(GD.Player.Attack);
     document.getElementById("DEF").innerHTML = prettify(GD.Player.Defense);
-    document.getElementById("FHP").innerHTML = prettify(GD.Player.HP) + "/" + prettify(GD.Player.health)
+    document.getElementById("FHP").innerHTML = prettify(GD.Player.HP) + "/" + prettify(GD.Player.Health)
     if (GD.Player.EXP >= GD.Player.MEXP) {
         GD.Player.EXP = 0;
-        GD.Player.MEXP *= 1.4;
+        GD.Player.MEXP *= 1.26;
         GD.Player.LV += 1;
         GD.Player.Defense = ((GD.Player.LV * GD.MULT.DEFM * GD.MULT.GLOBAL) * 0.3) + 0;
         GD.Player.Health = ((GD.Player.LV * GD.MULT.HPM * GD.MULT.GLOBAL) * 3) + 5;
@@ -80,3 +80,21 @@ var REGENloop = window.setInterval (function() {
     }
 }, 100)
 
+//eventlisteners
+var B = document.getElementById("att");
+if(B) {
+    B.addEventListener("click" ,function() {
+        ATTACK()
+}, true);
+}
+var B1 = document.getElementById("def");
+if (B1) {
+    B1.addEventListener("click", function() {
+        DEFENSE()
+    }, false);
+}
+var B2 = document.getElementById("bat");
+if (B2) {
+    B2.addEventListener("click", function() {
+        BATTLE()
+    },false)}

@@ -39,7 +39,7 @@ LV. <span id="CLV">0</span>
 </br>
     Defense: <span id="DEF">0</span>
 </br>
-<button id="EXPLORE" onclick="spawnRandomSlime()" class="FB-E">EXPLORE</button>
+<button id="EXPLORE" onclick="spawnRandomMob()" class="FB-E">EXPLORE</button>
 
 <div id="WORD" style="display: none;"> 
 </br>
@@ -47,10 +47,10 @@ LV. <span id="CLV">0</span>
 </div>
 <div id="MONSTER" style="display: none;">
 </br>
-    <button id="bat">BATTLE</button> </br>
-    <button id="def" style="display: none;">Defend</button>
-    <button id="att"  style="display: none;">Attack</button>
-</br>
+    <button id="bat" onclick="BATTLE()" style="color: red; background-color: black;">BATTLE</button> </br>
+    <button id="def" onclick= "DEFENSE()"style="color:green; background-color: gray; display: none; ">Defend</button>
+    <button id="att" onclick="ATTACK()" style="display: none; color: orange; background: black">Attack</button>
+</br><br>
 VS
 </br>
 </br>
