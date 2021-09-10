@@ -2,6 +2,7 @@ var GD = {
     Player: {
         EXP: 0,
         MEXP: 20,
+        TEXP: 0,
         Health: 5,
         Attack: 1,
         Defense: 0,
@@ -12,6 +13,7 @@ var GD = {
         PCG: 0,
         MLV: 10,
         SOD: 0,
+        Name: "You",
     },
     STATE: {
         DEFENSE: false,
@@ -25,6 +27,9 @@ var GD = {
         GLOBAL: 1,
         PCG: 1,
         EXPM: 1,
+    },
+    Option: {
+        monsterDif: 2,
     }
 }
 
@@ -35,6 +40,8 @@ var Loop = window.setInterval (function() {
     document.getElementById("ATT").innerHTML = prettify(GD.Player.Attack);
     document.getElementById("DEF").innerHTML = prettify(GD.Player.Defense);
     document.getElementById("FHP").innerHTML = prettify(GD.Player.HP) + "/" + prettify(GD.Player.Health)
+    document.getElementById("NAME").innerHTML = GD.Player.Name;
+    document.getElementById("NAME2").innerHTML = GD.Player.Name;
     if (GD.Player.EXP >= GD.Player.MEXP) {
         GD.Player.EXP = 0;
         GD.Player.MEXP *= 1.26;
@@ -50,7 +57,7 @@ var Loop = window.setInterval (function() {
         GD.STATE.REGEN = false;
         GD.Player.HP = GD.Player.Health;
     }
-    if (GD.Player.LV >= 3) {
+    if (GD.Player.LV >= 100 ){
         document.getElementById('PRESTIGE').style.display = "";
     } else {
         document.getElementById('PRESTIGE').style.display = "none";
@@ -98,3 +105,11 @@ if (B2) {
     B2.addEventListener("click", function() {
         BATTLE()
     },false)}
+
+const form = document.getElementById("form1");
+form.addEventListener('submit', (e) => {
+    e.preventDefault;
+
+    var input = document.getElementById("leveldif");
+    alert(input);
+})

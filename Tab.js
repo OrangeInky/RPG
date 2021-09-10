@@ -4,5 +4,6 @@ function tab (tab) {
     document.getElementById("Potion").style.display = "none"
     document.getElementById('Statistic').style.display = "none"
     document.getElementById('Prestige').style.display = "none"
+    document.getElementById('option').style.display ="none"
     document.getElementById(tab).style.display = "inline-block"
 }

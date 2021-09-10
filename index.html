@@ -10,6 +10,7 @@
     <h1 class="Heading">THE RPG GAME!</h1>
 
 <div id="Tabs" class="DIV1">
+    <button onclick="tab('option')" class="B1">Options</button>
     <button onclick="tab('fight')" class="B1">Fight</button>
     <button onclick="tab('Upgrades')" class="B1-2">Upgrades</button>
     <button onclick="tab('Potion')" class="B1-3">Potion</button>
@@ -22,10 +23,22 @@
 <script src="Prestige.js"></script>
 <script src="MOB.js"></script>
 
+<div id="option">
+     
+        <form id="yourFormIdk">
+            <label>
+                Put the value of the # of levels mobs can spawn higher than you, 2 is recommanded (This won't change the max level of mobs!). <br>
+              <input id="someRandomInputIdk">
+            </label>
+            <input type="submit" value="submit">
+          </form>
+</div>
+
+
 <div id="fight">
     <br>
 </br>
-    You:
+    <span id="NAME"> </span>:
 </br>
 LV. <span id="CLV">0</span>
 </br>
@@ -79,20 +92,8 @@ EXP DROP:<Span id="EXPDROP"> </Span>
 <div id="Statistic">
 </br>
 </br>
-You:
-</br>
-LV. <span id="CLV">0</span>
-</br>
-EXP: <span id="CEXP">0</span>
-</br>
-EXP To Next Level: <span id="NEXP">20</span>
-</br>
-HP: <span id="FHP">5/5</span>
-</br>
-Attack: <span id="ATT">1</span>
-</br>
-Defense: <span id="DEF">0</span>
-</br>
+Name: <span id="NAME2"> </span> <br>
+Total EXP Earned: <span id="tee"> </span>
     </div>
 <div id="Prestige">
     You've been attracted to this mysterious gate because of your powerfulness... </br> you can feel the urge to hop right in, you can sense that it's going to make you stronger! But at some cost...

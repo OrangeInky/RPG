@@ -34,12 +34,12 @@ class MOB {
 
     function spawnRandomSlime() {
     a = ({
-        ID: 1,LV: RBT(1,4),EXPD: 0,Health: RBT(2,5),Attack: 1, Defense: 0, Name: "Slime",HP: 0,HPM: RBT(10,12)/10,ATM: RBT(8,12)/10,DFM: 0,
+        ID: 1,LV: RBT(1,4),EXPD: 0,Health: RBT(2,4),Attack: 1, Defense: 0, Name: "Slime",HP: 0,HPM: RBT(10,12)/10,ATM: RBT(8,12)/10,DFM: 0,
     })}
 
     function spawnRandomBat() {
     a = ({
-        ID: 2,LV: RBT(1,4),EXPD:0,Health: RBT(1,3),Attack: 1, Defense: -1, Name: "Bat",HP: 0, HPM: RBT(6,9)/10,ATM: RBT(10,16)/10,DFM: 0,
+        ID: 2,LV: RBT(1,4),EXPD:0,Health: RBT(1,3),Attack: 1, Defense: 0, Name: "Bat",HP: 0, HPM: RBT(6,12)/10,ATM: RBT(10,16)/10,DFM: 0,
     })
     }
 
@@ -60,9 +60,9 @@ class MOB {
          if (randomSpawn == 2) {
              spawnRandomBat();
          }
-         a.Attack = a.Attack * a.ATM * a.LV;
-         a.Defense= a.Defense * a.DFM * a.LV;
-         a.Health = a.Health * a.HPM * a.LV;
+         a.Attack *= a.ATM * a.LV;
+         a.Defense *= a.DFM * a.LV;
+         a.Health *= a.HPM * a.LV;
          a.HP = a.Health;
          a.EXPD = (a.LV * ((a.Health * 0.2) + a.Attack * 0.2) * 2 * GD.MULT.EXPM)
          document.getElementById('MNAME').innerHTML = a.Name;
@@ -70,8 +70,10 @@ class MOB {
          document.getElementById('MHP').innerHTML = prettify(a.HP) + "/" + prettify(a.Health);
          document.getElementById('MATT').innerHTML = prettify(a.Attack);
          document.getElementById('MDEF').innerHTML = a.Defense;
-         document.getElementById('EXPDROP').innerHTML = prettify(a.EXPD)}
-
+         document.getElementById('EXPDROP').innerHTML = prettify(a.EXPD)
+        if (a.LV > GD.Player.LV + GD.Option.monsterDif) {
+             spawnRandomMob();
+         }}
          
     function BATTLE() {
         document.getElementById("EXPLORE").style.display = "none"
@@ -85,11 +87,13 @@ class MOB {
         document.getElementById("LOG").style.display = ""
         if (a.HP <= 0) {
             GD.Player.EXP += a.EXPD;
+            GD.Player.TEXP += a.EXPD
             document.getElementById("MONSTER").style.display = "none"
             document.getElementById("att").style.display = "none"
             document.getElementById("def").style.display = "none"
             document.getElementById("bat").style.display = "none"
             document.getElementById("EXPLORE").style.display = ""
+            document.getElementById("tee").innerHTML = GD.Player.TEXP
             document.getElementById("LOG").innerHTML = "You win! Poggers" + " You also gained " + prettify(a.EXPD) + " exps!"
             document.getElementById("LOG").style.display = ""
         } else {
@@ -105,7 +109,7 @@ class MOB {
     function TURN() {
         if (GD.STATE.DEFENSE === true) {
            GD.Player.HP -= (a.Attack - GD.Player.Defense) / 2;
-           document.getElementById("LOG").innerHTML =  a.Name + " dealed " + prettify(a.Attack - GD.Player.Defense) + " Damage!" + ", But you are in defend state! So the actual damage is "  + prettify(a.Attack - a.Defense)/2 + "!"
+           document.getElementById("LOG").innerHTML =  a.Name + " dealed " + prettify(a.Attack - GD.Player.Defense) + " Damage!" + ", But you are in defend state! So the actual damage is "  + prettify(a.Attack - GD.Player.Defense)/2 + "!"
            document.getElementById("LOG").style.display = ""
            document.getElementById("FHP").innerHTML = prettify(GD.Player.HP) + "/" + prettify(GD.Player.Health);
         } else {
