@@ -15,6 +15,8 @@ class MOB {
         this.HPM = Monster.HPM;
         this.ATM = Monster.ATM;
         this.DFM = Monster.DFM;
+        this.GOLDD = Monster.GOLDD;
+        this.lifeSteal = Monster.lifeSteal;
     }}
 
 
@@ -34,12 +36,12 @@ class MOB {
 
     function spawnRandomSlime() {
     a = ({
-        ID: 1,LV: RBT(1,4),EXPD: 0,Health: RBT(2,4),Attack: 1, Defense: 0, Name: "Slime",HP: 0,HPM: RBT(10,12)/10,ATM: RBT(8,12)/10,DFM: 0,
+        ID: 1,LV: RBT(1,4),EXPD: 0,Health: RBT(2,4),Attack: 1, Defense: 0, Name: "Slime",HP: 0,HPM: RBT(10,12)/10,ATM: RBT(8,12)/10,DFM: 0,GOLDD: [0,1,2,3,4,5,6], lifeSteal: 0,
     })}
 
     function spawnRandomBat() {
     a = ({
-        ID: 2,LV: RBT(1,4),EXPD:0,Health: RBT(1,3),Attack: 1, Defense: 0, Name: "Bat",HP: 0, HPM: RBT(6,12)/10,ATM: RBT(10,16)/10,DFM: 0,
+        ID: 2,LV: RBT(1,4),EXPD:0,Health: RBT(1,3),Attack: 1, Defense: 0, Name: "Bat",HP: 0, HPM: RBT(6,12)/10,ATM: RBT(10,16)/10,DFM: 0,GOLDD: [0,1,2,3], lifeSteal: 2.2,
     })
     }
 
@@ -51,6 +53,11 @@ class MOB {
         document.getElementById("MONSTER").style.display = "";
         document.getElementById("WORD").style.display = "none";
         document.getElementById("LOG").style.display = "none";
+        if (a.lifeSteal > 0) {
+            document.getElementById("MLS").innerHTML = prettify(a.lifeSteal) + "%"
+        } else {
+            document.getElementById("MLS").style.display = "none"
+        }
 
 
         randomSpawn = Math.floor(Math.random() * 2) + 1;
@@ -96,6 +103,20 @@ class MOB {
             document.getElementById("tee").innerHTML = GD.Player.TEXP
             document.getElementById("LOG").innerHTML = "You win! Poggers" + " You also gained " + prettify(a.EXPD) + " exps!"
             document.getElementById("LOG").style.display = ""
+            if (a.ID == 1) {
+                var tempx = (Math.floor(Math.random() * 5) + 1)
+                if (tempx == 5) {
+                    GD.Upgrades.Slime += 1 * GD.MULT.DROPM;
+                    document.getElementById("LOG").innerHTML = "You win! Poggers" + " You also gained " + prettify(a.EXPD) + " exps!" + "<br/>" + "You also gained " + "1" + " slime balls! What can they do though?"
+                }
+            }
+            if (a.ID == 2) {
+                var tempx = (Math.floor(Math.random() * 7) + 1)
+                if (tempx == 5) {
+                    GD.Upgrades.Bat += 1 * GD.MULT.DROPM;
+                    document.getElementById("LOG").innerHTML = "You win! Poggers" + " You also gained " + prettify(a.EXPD) + " exps!" + "<br/>" + "You also gained " + "1" + " Bat Teeth ! What can they do though?"
+                }
+            }
         } else {
             TURN();
         }
@@ -107,6 +128,9 @@ class MOB {
     }
     
     function TURN() {
+        if (a.lifeSteal > 0) {
+            a.HP += (a.Attack * (a.lifeSteal/10))
+        }
         if (GD.STATE.DEFENSE === true) {
            GD.Player.HP -= (a.Attack - GD.Player.Defense) / 2;
            document.getElementById("LOG").innerHTML =  a.Name + " dealed " + prettify(a.Attack - GD.Player.Defense) + " Damage!" + ", But you are in defend state! So the actual damage is "  + prettify(a.Attack - GD.Player.Defense)/2 + "!"
@@ -130,4 +154,4 @@ class MOB {
             document.getElementById("LOG").innerHTML = "You lose! Sadge"
         }
         console.log("HP:" + prettify(GD.Player.HP) + " HP Difference: " + prettify(GD.Player.Health - GD.Player.HP) + " Damage Dealed:" + prettify(a.Attack - GD.Player.Defense) + " MOB HEALTH: " + prettify(a.HP) + " MOB LV:" + (a.LV))
-    }
+}
