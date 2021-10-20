@@ -12,7 +12,7 @@
 <div id="Tabs" class="DIV1">
     <button onclick="tab('option')" class="B1">Options</button>
     <button onclick="tab('fight')" class="B1">Fight</button>
-    <button onclick="tab('Upgrades')" class="B1-2">Upgrades</button>
+    <button onclick="tab('Upgrades')" style="display: none;" id="UPS" class="B1-2">Upgrades</button>
     <button onclick="tab('Potion')" class="B1-3">Potion</button>
     <button onclick="tab('Statistic')" class="B1-4">Statistic</button>
     <button onclick="tab('Prestige')" style="display: none; background-color: purple; font-size: 30px; border: blue;"  id="PRESTIGE"> THE GATE</button>
@@ -22,23 +22,21 @@
 <script src="Variable.js"></script>
 <script src="Prestige.js"></script>
 <script src="MOB.js"></script>
+<script src="upgrade.js"></script>
 
 <div id="option">
-     
-        <form id="yourFormIdk">
-            <label>
-                Put the value of the # of levels mobs can spawn higher than you, 2 is recommanded (This won't change the max level of mobs!). <br>
-              <input id="someRandomInputIdk">
-            </label>
-            <input type="submit" value="submit">
-          </form>
+    Change your name, if you don't like "you" <br>
+ <input type="text" placeholder="Name" id="NameInput">
+ <button onclick="ChangeName()"> Submit</button> <br>
+    Change the max level that the mob can be higher than you; 0 is no limit, 1 is they are maxium 1 level higher than you, and so on; (Note, Don't use negative numbers, it would break the game)<br>
+    <input type="text" placeholder="value" id="ValueInput">
+<button onclick="ChangeValue()"> Submit</button>
 </div>
 
 
 <div id="fight">
-    <br>
 </br>
-    <span id="NAME"> </span>:
+<span id="NAME"> </span>
 </br>
 LV. <span id="CLV">0</span>
 </br>
@@ -78,13 +76,16 @@ ATTACK:<Span id="MATT"> </Span>
 DEFENSE:<Span id="MDEF"> </Span>
 </br>
 EXP DROP:<Span id="EXPDROP"> </Span>
+<br>
+Life Steal %: <span id="MLS"> </span>
 </div>
 <div class="Log">
     <span id="LOG" style="display: none;"> </span>
 </div>
     </div>
-<div id="Upgrades">
-    coming soon!
+<div id="Upgrades" style=" display: none;"> 
+        Current gold: <span id="Cgold"> 0</span> <br>
+        All Materials: <br><span id="Item"> </span>
     </div>
 <div id="Potion">
     coming soon!
@@ -93,7 +94,8 @@ EXP DROP:<Span id="EXPDROP"> </Span>
 </br>
 </br>
 Name: <span id="NAME2"> </span> <br>
-Total EXP Earned: <span id="tee"> </span>
+Total EXP Earned: <span id="tee"> 0</span> <br>
+Total Gold Earned: <span id="Tgold"> 0</span><br>
     </div>
 <div id="Prestige">
     You've been attracted to this mysterious gate because of your powerfulness... </br> you can feel the urge to hop right in, you can sense that it's going to make you stronger! But at some cost...
