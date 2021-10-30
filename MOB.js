@@ -1,6 +1,7 @@
 function RBT(min,max) {
     return min + Math.floor((max - min + 1) * Math.random())
 }
+
 //The Mob Class
 class MOB {
     constructor(Monster) {
@@ -36,14 +37,20 @@ class MOB {
 
     function spawnRandomSlime() {
     a = ({
-        ID: 1,LV: RBT(1,4),EXPD: 0,Health: RBT(2,4),Attack: 1, Defense: 0, Name: "Slime",HP: 0,HPM: RBT(10,12)/10,ATM: RBT(8,12)/10,DFM: 0,GOLDD: [0,1,2,3,4,5,6], lifeSteal: 0,
+        ID: 1,LV: RBT(1,5),EXPD: 0,Health: RBT(2,4),Attack: 1, Defense: 0, Name: "Slime",HP: 0,HPM: RBT(8,12)/10,ATM: RBT(8,12)/10,DFM: 0,GOLDD: [1,2,5,6], lifeSteal: 0,
     })}
 
     function spawnRandomBat() {
-    a = ({
-        ID: 2,LV: RBT(1,4),EXPD:0,Health: RBT(1,3),Attack: 1, Defense: 0, Name: "Bat",HP: 0, HPM: RBT(6,12)/10,ATM: RBT(10,16)/10,DFM: 0,GOLDD: [0,1,2,3], lifeSteal: 2.2,
-    })
-    }
+        a = ({
+            ID: 2,LV: RBT(1,5),EXPD:0,Health: RBT(1,3),Attack: 1, Defense: 0, Name: "Bat",HP: 0, HPM: RBT(8,12)/10,ATM: RBT(10,16)/10,DFM: 0,GOLDD: [1,2,3], lifeSteal: 2.2,
+        })
+        }
+
+    function spawnRandomChicken() {
+        a = ({
+            ID: 3,LV: RBT(1,5),EXPD:0,Health: RBT(2,5),Attack: 1, Defense: 0, Name: "Bat",HP: 0, HPM: RBT(10,16)/10,ATM: RBT(6,10)/10,DFM: 0,GOLDD: [1,2,4,8,10], lifeSteal: 2.2,
+        })
+        }
 
 //Randomly pick a mob to spawn
     var randomSpawn = 0
@@ -95,6 +102,7 @@ class MOB {
         if (a.HP <= 0) {
             GD.Player.EXP += a.EXPD;
             GD.Player.TEXP += a.EXPD
+            LVUP();
             document.getElementById("MONSTER").style.display = "none"
             document.getElementById("att").style.display = "none"
             document.getElementById("def").style.display = "none"
@@ -109,12 +117,35 @@ class MOB {
                     GD.Upgrades.Slime += 1 * GD.MULT.DROPM;
                     document.getElementById("LOG").innerHTML = "You win! Poggers" + " You also gained " + prettify(a.EXPD) + " exps!" + "<br/>" + "You also gained " + "1" + " slime balls! What can they do though?"
                 }
+                var tempx2 = (Math.floor(Math.random()* 13) +1)
+                if (tempx2 <= 7) {
+                    GD.Player.Gold += (a.GOLDD[0]* GD.MULT.GLOBAL); document.getElementById("LOG").innerHTML = "You win! Poggers" + " You also gained " + prettify(a.EXPD) + " exps!" + "<br/>" + "You also gained: " + a.GOLDD[0]*GD.MULT.GLOBAL + " Gold! Use them wisely!"
+                }
+                if (tempx == 8|| tempx == 9) {
+                    GD.Player.Gold += (a.GOLDD[1]* GD.MULT.GLOBAL); document.getElementById("LOG").innerHTML = "You win! Poggers" + " You also gained " + prettify(a.EXPD) + " exps!" + "<br/>" + "You also gained: " + a.GOLDD[1]*GD.MULT.GLOBAL + " Gold! Use them wisely!"
+                }
+                if (tempx == 10|| tempx == 11) {
+                    GD.Player.Gold += (a.GOLDD[2]* GD.MULT.GLOBAL); document.getElementById("LOG").innerHTML = "You win! Poggers" + " You also gained " + prettify(a.EXPD) + " exps!" + "<br/>" + "You also gained: " + a.GOLDD[2]*GD.MULT.GLOBAL + " Gold! Use them wisely!"
+                }
+                if (tempx == 12|| tempx == 13) {
+                    GD.Player.Gold += (a.GOLDD[3]* GD.MULT.GLOBAL); document.getElementById("LOG").innerHTML = "You win! Poggers" + " You also gained " + prettify(a.EXPD) + " exps!" + "<br/>" + "You also gained: " + a.GOLDD[3]*GD.MULT.GLOBAL + " Gold! Use them wisely!"
+                }
             }
             if (a.ID == 2) {
                 var tempx = (Math.floor(Math.random() * 7) + 1)
                 if (tempx == 5) {
                     GD.Upgrades.Bat += 1 * GD.MULT.DROPM;
                     document.getElementById("LOG").innerHTML = "You win! Poggers" + " You also gained " + prettify(a.EXPD) + " exps!" + "<br/>" + "You also gained " + "1" + " Bat Teeth ! What can they do though?"
+                }
+                var tempx2 = (Math.floor(Math.random()* 13) +1)
+                if (tempx2 <= 7) {
+                    GD.Player.Gold += (a.GOLDD[0]* GD.MULT.GLOBAL); document.getElementById("LOG").innerHTML = "You win! Poggers" + " You also gained " + prettify(a.EXPD) + " exps!" + "<br/>" + "You also gained: " + a.GOLDD[0]*GD.MULT.GLOBAL + " Gold! Use them wisely!"
+                }
+                if (tempx == 8|| tempx == 9) {
+                    GD.Player.Gold += (a.GOLDD[1]* GD.MULT.GLOBAL); document.getElementById("LOG").innerHTML = "You win! Poggers" + " You also gained " + prettify(a.EXPD) + " exps!" + "<br/>" + "You also gained: " + a.GOLDD[1]*GD.MULT.GLOBAL + " Gold! Use them wisely!"
+                }
+                if (tempx == 10|| tempx == 11) {
+                    GD.Player.Gold += (a.GOLDD[2]* GD.MULT.GLOBAL); document.getElementById("LOG").innerHTML = "You win! Poggers" + " You also gained " + prettify(a.EXPD) + " exps!" + "<br/>" + "You also gained: " + a.GOLDD[2]*GD.MULT.GLOBAL + " Gold! Use them wisely!"
                 }
             }
         } else {

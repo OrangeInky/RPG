@@ -29,7 +29,7 @@
  <input type="text" placeholder="Name" id="NameInput">
  <button onclick="ChangeName()"> Submit</button> <br>
     Change the max level that the mob can be higher than you; 0 is no limit, 1 is they are maxium 1 level higher than you, and so on; (Note, Don't use negative numbers, it would break the game)<br>
-    <input type="text" placeholder="value" id="ValueInput">
+    <input type="text" placeholder="value" id="ValueInput"> Currently: <span id="DisplayMonsterDif"> </span>
 <button onclick="ChangeValue()"> Submit</button>
 </div>
 
@@ -86,6 +86,26 @@ Life Steal %: <span id="MLS"> </span>
 <div id="Upgrades" style=" display: none;"> 
         Current gold: <span id="Cgold"> 0</span> <br>
         All Materials: <br><span id="Item"> </span>
+        <div id="upgrades">
+            <button class="Button"> Bat upgrade 
+            <div id="Description1">
+                Increase your attack by <span id="Upgrade1Effect"> 2%</span> <br>
+                Cost: <span id="Upgrade1Cost"> 
+                    Bat wing: 3 <br>
+                    Gold: 10
+                </span>
+            </div>
+            </button>
+            <button class="Button"> Slime Upgrade
+                <div id="Description2">
+                    Increase your health by <span id="Upgrade2Effect"> 3% </span> <br>
+                    Cost: <span id="Upgrade2Cost">
+                        Slime Ball: 3 <br>
+                        Gold: 10
+                    </span>
+                </div>
+            </button>
+        </div>
     </div>
 <div id="Potion">
     coming soon!
